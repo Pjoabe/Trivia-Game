@@ -1,4 +1,5 @@
 import React from 'react';
+import { getApi } from '../services/api';
 
 class Login extends React.Component {
   constructor() {
@@ -22,6 +23,12 @@ class Login extends React.Component {
     const { email, name } = this.state;
     const check = /\S+@\S+\.\S+/;
     return !(check.test(email) && name.length !== 0);
+  };
+
+  fetchToken = async () => {
+    await getApi();
+    const { history } = this.props;
+    history.push('/game');
   };
 
   render() {
@@ -54,7 +61,7 @@ class Login extends React.Component {
           data-testid="btn-play"
           type="button"
           disabled={ this.emailValidation() }
-          onClick={ () => {} }
+          onClick={ this.fetchToken }
         >
           Play
         </button>
@@ -62,5 +69,6 @@ class Login extends React.Component {
     );
   }
 }
+Login.propTypes = {}.isRequired;
 
 export default Login;
