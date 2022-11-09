@@ -15,7 +15,7 @@ describe('<Login/>', () => {
     renderWithRouterAndRedux(<App/>)
     const nome = screen.getByLabelText(/nome/i)
     const email = screen.getByLabelText(/email/i)
-    const btn = screen.getByRole('button')
+    const btn = screen.getByRole('button', {name: 'Play'})
 
     expect(nome).toBeInTheDocument()
     expect(email).toBeInTheDocument()
@@ -28,12 +28,14 @@ describe('<Login/>', () => {
     
     const nome = screen.getByLabelText(/nome/i)
     const email = screen.getByLabelText(/email/i)
-    const btn = screen.getByRole('button')
+    const btn = screen.getByRole('button', {name: 'Play'})
 
     userEvent.type(nome, 'mateus')
     userEvent.type(email, 'mateus@gmail.com')
     expect(btn).toBeEnabled()
   })
+
+  
 
   
 })
