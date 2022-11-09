@@ -1,4 +1,4 @@
-import { screen } from "@testing-library/react";
+import { screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import App from "../App";
 import renderWithRouterAndRedux from "./helpers/renderWithRouterAndRedux"
@@ -35,7 +35,33 @@ describe('<Login/>', () => {
     expect(btn).toBeEnabled()
   })
 
-  
+  test('se o botao configuracoes redirenciona para o path /settings', () => {
+    const {history} = renderWithRouterAndRedux(<App/>)
+    const settingsBtn = screen.getByRole('button', {name: 'Configurações'})
+    expect(settingsBtn).toBeInTheDocument()
+    userEvent.click(settingsBtn)
+    const {pathname} = history.location
+    expect(pathname).toBe('/settings')
+
+  })
+
+  test('se o botao play redirenciona para o path /game', async() => {
+    const {history} = renderWithRouterAndRedux(<App/>)
+    
+    const nome = screen.getByLabelText(/nome/i)
+    const email = screen.getByLabelText(/email/i)
+    userEvent.type(nome, 'mateus')
+    userEvent.type(email, 'mateus@gmail.com')
+    const btn = screen.getByRole('button', {name: 'Play'})
+
+    userEvent.click(btn)
+    await waitFor(() => {
+      const url = history.location.pathname
+      expect(url).toBe('/game')
+    })
+
+    
+  })
 
   
 })
