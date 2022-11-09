@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { getApi } from '../services/api';
 
 class Login extends React.Component {
   constructor() {
@@ -25,21 +25,16 @@ class Login extends React.Component {
     return !(check.test(email) && name.length !== 0);
   };
 
+  fetchToken = async () => {
+    await getApi();
+    const { history } = this.props;
+    history.push('/game');
+  };
+
   render() {
     const { name, email } = this.state;
-    const { history: { push } } = this.props;
     return (
       <>
-        <button
-          data-testid="btn-settings"
-          type="button"
-          onClick={ () => {
-            push('/settings');
-          } }
-        >
-          Configurações
-        </button>
-
         <label htmlFor="name">
           Nome
           <input
@@ -66,7 +61,7 @@ class Login extends React.Component {
           data-testid="btn-play"
           type="button"
           disabled={ this.emailValidation() }
-          onClick={ () => {} }
+          onClick={ this.fetchToken }
         >
           Play
         </button>
@@ -74,9 +69,6 @@ class Login extends React.Component {
     );
   }
 }
-
-Login.propTypes = {
-  push: PropTypes.func,
-}.isRequired;
+Login.propTypes = {}.isRequired;
 
 export default Login;
