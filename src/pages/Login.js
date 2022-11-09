@@ -7,10 +7,16 @@ class Login extends React.Component {
     this.state = {
       name: '',
       email: '',
-      isButtonDisabled: true,
     };
     this.handleInput = this.handleInput.bind(this);
   }
+
+  emailValidation = () => {
+    const { email, name } = this.state;
+    const check = /\S+@\S+\.\S+/;
+    if (check.test(email) && name.length !== 0) return false;
+    return true;
+  };
 
   handleInput({ target }) {
     const { name, value } = target;
@@ -48,7 +54,7 @@ class Login extends React.Component {
         <button
           data-testid="btn-play"
           type="button"
-          disabled={ isButtonDisabled }
+          disabled={ this.emailValidation() }
           onClick={ () => {} }
         >
           Play
