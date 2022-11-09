@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { getApi } from '../services/api';
-import PropTypes from 'prop-types';
 
-class Login extends Component {
+class Login extends React.Component {
   constructor() {
     super();
 
@@ -13,7 +12,8 @@ class Login extends Component {
     this.handleInput = this.handleInput.bind(this);
   }
 
-  handleInput({ target: { value, name } }) {
+  handleInput({ target }) {
+    const { name, value } = target;
     this.setState({
       [name]: value,
     });
@@ -33,19 +33,8 @@ class Login extends Component {
 
   render() {
     const { name, email } = this.state;
-    const { history: { push } } = this.props;
     return (
       <>
-        <button
-          data-testid="btn-settings"
-          type="button"
-          onClick={ () => {
-            push('/settings');
-          } }
-        >
-          Configurações
-        </button>
-
         <label htmlFor="name">
           Nome
           <input
