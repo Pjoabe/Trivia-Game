@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
-import genericReducer1 from './genericReducer1';
+import userInfo from './userInfo';
 import genericReducer2 from './genericReducer2';
 
-const rootReducer = combineReducers({ genericReducer1, genericReducer2 });
+const rootReducer = combineReducers({ userInfo, genericReducer2 });
 
 export default rootReducer;
