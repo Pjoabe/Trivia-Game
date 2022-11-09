@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { getApi } from '../services/api';
 
-class Login extends React.Component {
+class Login extends Component {
   constructor() {
     super();
 
@@ -12,8 +12,7 @@ class Login extends React.Component {
     this.handleInput = this.handleInput.bind(this);
   }
 
-  handleInput({ target }) {
-    const { name, value } = target;
+  handleInput({ target: { value, name } }) {
     this.setState({
       [name]: value,
     });
