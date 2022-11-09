@@ -1,5 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { getApi } from '../services/api';
+import { saveUserData } from '../redux/actions/index';
 
 class Login extends React.Component {
   constructor() {
@@ -26,8 +28,10 @@ class Login extends React.Component {
   };
 
   fetchToken = async () => {
+    const { name, email } = this.state;
+    const { history, dispatch } = this.props;
     await getApi();
-    const { history } = this.props;
+    dispatch(saveUserData(name, email));
     history.push('/game');
   };
 
@@ -82,4 +86,4 @@ class Login extends React.Component {
 }
 Login.propTypes = {}.isRequired;
 
-export default Login;
+export default connect()(Login);
