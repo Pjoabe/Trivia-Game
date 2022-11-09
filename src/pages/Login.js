@@ -7,6 +7,7 @@ class Login extends React.Component {
     this.state = {
       name: '',
       email: '',
+      isButtonDisabled: true,
     };
     this.handleInput = this.handleInput.bind(this);
   }
@@ -19,7 +20,7 @@ class Login extends React.Component {
   }
 
   render() {
-    const { name, email } = this.state;
+    const { name, email, isButtonDisabled } = this.state;
     return (
       <>
         <label htmlFor="name">
@@ -44,6 +45,14 @@ class Login extends React.Component {
             data-testid="input-gravatar-email"
           />
         </label>
+        <button
+          data-testid="btn-play"
+          type="button"
+          disabled={ isButtonDisabled }
+          onClick={ () => {} }
+        >
+          Play
+        </button>
       </>
     );
   }
