@@ -11,13 +11,6 @@ class Login extends React.Component {
     this.handleInput = this.handleInput.bind(this);
   }
 
-  emailValidation = () => {
-    const { email, name } = this.state;
-    const check = /\S+@\S+\.\S+/;
-    if (check.test(email) && name.length !== 0) return false;
-    return true;
-  };
-
   handleInput({ target }) {
     const { name, value } = target;
     this.setState({
@@ -25,8 +18,14 @@ class Login extends React.Component {
     });
   }
 
+  emailValidation = () => {
+    const { email, name } = this.state;
+    const check = /\S+@\S+\.\S+/;
+    return !(check.test(email) && name.length !== 0);
+  };
+
   render() {
-    const { name, email, isButtonDisabled } = this.state;
+    const { name, email } = this.state;
     return (
       <>
         <label htmlFor="name">
