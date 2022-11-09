@@ -7,7 +7,6 @@ class Login extends React.Component {
     this.state = {
       name: '',
       email: '',
-      isButtonDisabled: true,
     };
     this.handleInput = this.handleInput.bind(this);
   }
@@ -19,8 +18,14 @@ class Login extends React.Component {
     });
   }
 
+  emailValidation = () => {
+    const { email, name } = this.state;
+    const check = /\S+@\S+\.\S+/;
+    return !(check.test(email) && name.length !== 0);
+  };
+
   render() {
-    const { name, email, isButtonDisabled } = this.state;
+    const { name, email } = this.state;
     return (
       <>
         <label htmlFor="name">
@@ -48,7 +53,7 @@ class Login extends React.Component {
         <button
           data-testid="btn-play"
           type="button"
-          disabled={ isButtonDisabled }
+          disabled={ this.emailValidation() }
           onClick={ () => {} }
         >
           Play
