@@ -2,7 +2,12 @@ import React from 'react';
 
 class Game extends React.Component {
   render() {
-    return (<h1>teste</h1>);
+    return (
+      <div>
+        <h2>Trivia</h2>
+      </div>
+    );
   }
 }
+
 export default Game;
