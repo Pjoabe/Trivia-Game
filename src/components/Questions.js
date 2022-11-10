@@ -1,10 +1,13 @@
 import React from 'react';
 import propTypes from 'prop-types';
 
+const CORRECT_ANSWER = 'correct-answer';
+
 class Questions extends React.Component {
   state = {
     id: 0,
     randomized: [],
+    isDisabled: true,
   };
 
   componentDidMount() {
@@ -20,10 +23,21 @@ class Questions extends React.Component {
     this.setState({ randomized: answersArr });
   };
 
-  render() {
-    const { randomized, id } = this.state;
+  handleCorrectAnswer = () => {
+    this.setState({
+      isDisabled: false,
+    });
+  };
+
+  colors = (alt) => {
+    const { id } = this.state;
     const { questions } = this.props;
-    const CORRECT_ANSWER = 'correct-answer';
+    return (questions[id].correct_answer === alt ? 'isTrue' : 'isFalse');
+  };
+
+  render() {
+    const { randomized, id, isDisabled } = this.state;
+    const { questions } = this.props;
     return (
       <div>
         <div>
@@ -34,8 +48,10 @@ class Questions extends React.Component {
           <div data-testid="answer-options">
             {randomized.map((alt, index) => (
               <button
+                onClick={ this.handleCorrectAnswer }
                 data-testid={ questions[id].correct_answer === alt
                   ? CORRECT_ANSWER : `wrong-answer-${index}` }
+                className={ !isDisabled && this.colors(alt) }
                 type="button"
                 key={ index }
               >

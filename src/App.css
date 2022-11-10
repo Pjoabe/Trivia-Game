@@ -8,6 +8,14 @@ body {
   text-align: center;
 }
 
+.isTrue {
+  border: 3px solid rgb(6, 240, 15);
+}
+
+.isFalse {
+  border: 3px solid red;
+}
+
 .App-logo {
   height: 15vmin;
   pointer-events: none;
