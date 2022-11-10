@@ -8,11 +8,32 @@ class Questions extends React.Component {
     id: 0,
     randomized: [],
     isDisabled: true,
+    timerInitialState: 30,
+    disableAnswers: false,
   };
 
   componentDidMount() {
     this.randomQuestions();
+    this.startTimer();
   }
+
+  startTimer = () => {
+    const oneSecond = 1000;
+    const timer = setInterval(() => {
+      this.setState((prevState) => ({
+        ...prevState,
+        timerInitialState: prevState.timerInitialState - 1,
+      }));
+      const { timerInitialState } = this.state;
+      if (timerInitialState === 1) {
+        clearInterval(timer);
+        this.setState({
+          disableAnswers: true,
+          isDisabled: false,
+        });
+      }
+    }, oneSecond);
+  };
 
   randomQuestions = () => {
     const NUMBER = 0.5;
@@ -36,10 +57,11 @@ class Questions extends React.Component {
   };
 
   render() {
-    const { randomized, id, isDisabled } = this.state;
+    const { randomized, id, isDisabled, timerInitialState, disableAnswers } = this.state;
     const { questions } = this.props;
     return (
       <div>
+        <h2>{timerInitialState}</h2>
         <div>
           <p data-testid="question-category">{questions[id].category}</p>
           <p data-testid="question-text">{questions[id].question}</p>
@@ -54,9 +76,11 @@ class Questions extends React.Component {
                 className={ !isDisabled && this.colors(alt) }
                 type="button"
                 key={ index }
+                disabled={ disableAnswers }
               >
                 {alt}
               </button>))}
+
           </div>
         </div>
       </div>
