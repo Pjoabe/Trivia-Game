@@ -47,15 +47,24 @@ class Questions extends React.Component {
   };
 
   handleCorrectAnswer = (alt) => {
-    const { id } = this.state;
-    const { questions, dispatch, score } = this.props;
+    const three = 3;
+    const ten = 10;
+    const { id, timerInitialState } = this.state;
+    const { questions, dispatch, score, assertions } = this.props;
+    let difficultyVal = 0;
     this.setState({
       isDisabled: false,
+      disableAnswers: true,
     });
     const correct = questions[id].correct_answer;
     if (alt === correct) {
+      if (questions[id].difficulty === 'easy') difficultyVal = 1;
+      if (questions[id].difficulty === 'medium') difficultyVal = 2;
+      if (questions[id].difficulty === 'hard') difficultyVal = three;
+      const assertIncrement = ten + (timerInitialState * difficultyVal);
+      const newAssertion = assertions + assertIncrement;
       const newScore = score + 1;
-      dispatch(scoreIncrement(newScore));
+      dispatch(scoreIncrement(newScore, newAssertion));
     }
   };
 
@@ -105,6 +114,7 @@ Questions.propTypes = {
 
 const mapStateToProps = (globalState) => ({
   score: globalState.player.score,
+  assertions: globalState.player.assertions,
 });
 
 export default connect(mapStateToProps)(Questions);

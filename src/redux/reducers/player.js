@@ -16,7 +16,8 @@ const player = (state = initialUserData, action) => {
   case 'INCREMENT_SCORE':
     return ({
       ...state,
-      score: action.payload,
+      score: action.payload.score,
+      assertions: action.payload.assertions,
     });
   default:
     return state;

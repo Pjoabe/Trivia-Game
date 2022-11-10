@@ -6,7 +6,10 @@ export const saveUserData = (name, email) => ({
   },
 });
 
-export const scoreIncrement = (score) => ({
+export const scoreIncrement = (score, assertions) => ({
   type: 'INCREMENT_SCORE',
-  payload: score,
+  payload: {
+    score,
+    assertions,
+  },
 });
