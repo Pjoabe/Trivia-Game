@@ -1,5 +1,7 @@
 import React from 'react';
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { scoreIncrement } from '../redux/actions';
 
 const CORRECT_ANSWER = 'correct-answer';
 
@@ -23,10 +25,17 @@ class Questions extends React.Component {
     this.setState({ randomized: answersArr });
   };
 
-  handleCorrectAnswer = () => {
+  handleCorrectAnswer = (alt) => {
+    const { id } = this.state;
+    const { questions, dispatch, score } = this.props;
     this.setState({
       isDisabled: false,
     });
+    const correct = questions[id].correct_answer;
+    if (alt === correct) {
+      const newScore = score + 1;
+      dispatch(scoreIncrement(newScore));
+    }
   };
 
   colors = (alt) => {
@@ -48,7 +57,7 @@ class Questions extends React.Component {
           <div data-testid="answer-options">
             {randomized.map((alt, index) => (
               <button
-                onClick={ this.handleCorrectAnswer }
+                onClick={ () => this.handleCorrectAnswer(alt) }
                 data-testid={ questions[id].correct_answer === alt
                   ? CORRECT_ANSWER : `wrong-answer-${index}` }
                 className={ !isDisabled && this.colors(alt) }
@@ -66,7 +75,13 @@ class Questions extends React.Component {
 }
 
 Questions.propTypes = {
-  questions: propTypes.arrayOf(propTypes.any),
-  dispatch: propTypes.func,
+  score: PropTypes.number.isRequired,
+  questions: PropTypes.arrayOf(PropTypes.any),
+  dispatch: PropTypes.func,
 }.isRequired;
-export default Questions;
+
+const mapStateToProps = (globalState) => ({
+  score: globalState.player.score,
+});
+
+export default connect(mapStateToProps)(Questions);
