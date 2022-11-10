@@ -89,7 +89,6 @@ class Questions extends React.Component {
               >
                 {alt}
               </button>))}
-
           </div>
         </div>
       </div>
