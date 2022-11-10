@@ -25,24 +25,27 @@ class Header extends Component {
 
   render() {
     const { img, name } = this.state;
+    const { score } = this.props;
     return (
       <header>
         <img data-testid="header-profile-picture" src={ img } alt="User img" />
         <h3 data-testid="header-player-name">{ name }</h3>
-        <p data-testid="header-score">0</p>
+        <p data-testid="header-score">{ score }</p>
       </header>
     );
   }
 }
 
 const mapStateToProps = (globalState) => ({
-  email: globalState.userInfo.email,
-  name: globalState.userInfo.name,
+  email: globalState.player.gravatarEmail,
+  name: globalState.player.name,
+  score: globalState.player.score,
 });
 
 Header.propTypes = {
   email: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
+  score: PropTypes.number.isRequired,
 };
 
 export default connect(mapStateToProps)(Header);

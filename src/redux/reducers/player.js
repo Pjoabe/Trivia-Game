@@ -1,14 +1,16 @@
 const initialUserData = {
-  email: '',
+  score: 0,
+  assertions: 0,
+  gravatarEmail: '',
   name: '',
 };
 
-const userInfo = (state = initialUserData, action) => {
+const player = (state = initialUserData, action) => {
   switch (action.type) {
   case 'HANDLE_USER':
     return ({
       ...state,
-      email: action.payload.email,
+      gravatarEmail: action.payload.email,
       name: action.payload.name,
     });
   default:
@@ -16,4 +18,4 @@ const userInfo = (state = initialUserData, action) => {
   }
 };
 
-export default userInfo;
+export default player;
