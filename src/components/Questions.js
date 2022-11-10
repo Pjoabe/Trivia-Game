@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import { scoreIncrement } from '../redux/actions';
 
 const CORRECT_ANSWER = 'correct-answer';
@@ -99,38 +100,42 @@ class Questions extends React.Component {
   render() {
     const { randomized, id, isDisabled, timerInitialState, disableAnswers } = this.state;
     const { questions } = this.props;
+    const FOUR = 4;
     return (
       <div>
-        <h2>{timerInitialState}</h2>
-        <div>
-          <p data-testid="question-category">{questions[id].category}</p>
-          <p data-testid="question-text">{questions[id].question}</p>
-        </div>
-        <div>
-          <div data-testid="answer-options">
-            {randomized.map((alt, index) => (
-              <button
-                onClick={ () => this.handleCorrectAnswer(alt) }
-                data-testid={ questions[id].correct_answer === alt
-                  ? CORRECT_ANSWER : `wrong-answer-${index}` }
-                className={ !isDisabled && this.colors(alt) }
-                type="button"
-                key={ index }
-                disabled={ disableAnswers }
-              >
-                {alt}
-              </button>))}
-          </div>
-          { !isDisabled && (
-            <button
-              type="button"
-              data-testid="btn-next"
-              onClick={ this.increaseId }
-            >
-              Next
-            </button>
-          )}
-        </div>
+        {id <= FOUR ? (
+          <div>
+            <h2>{timerInitialState}</h2>
+            <div>
+              <p data-testid="question-category">{questions[id].category}</p>
+              <p data-testid="question-text">{questions[id].question}</p>
+            </div>
+            <div>
+              <div data-testid="answer-options">
+                {randomized.map((alt, index) => (
+                  <button
+                    onClick={ () => this.handleCorrectAnswer(alt) }
+                    data-testid={ questions[id].correct_answer === alt
+                      ? CORRECT_ANSWER : `wrong-answer-${index}` }
+                    className={ !isDisabled && this.colors(alt) }
+                    type="button"
+                    key={ index }
+                    disabled={ disableAnswers }
+                  >
+                    {alt}
+                  </button>))}
+              </div>
+              { !isDisabled && (
+                <button
+                  type="button"
+                  data-testid="btn-next"
+                  onClick={ this.increaseId }
+                >
+                  Next
+                </button>
+              )}
+            </div>
+          </div>) : (<Redirect to="/feedback" />) }
       </div>
 
     );
