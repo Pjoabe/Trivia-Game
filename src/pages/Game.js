@@ -1,5 +1,6 @@
 import React from 'react';
 import propTypes from 'prop-types';
+import Header from '../components/Header';
 import { getQuestions } from '../services/api';
 import Questions from '../components/Questions';
 
@@ -33,6 +34,7 @@ export default class Game extends React.Component {
     const { questions } = this.state;
     return (
       <div>
+        <Header />
         {questions.length > 0 && <Questions
           questions={ questions }
         />}
