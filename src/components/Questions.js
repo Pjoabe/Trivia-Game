@@ -12,6 +12,7 @@ class Questions extends React.Component {
     isDisabled: true,
     timerInitialState: 30,
     disableAnswers: false,
+    stopTimer: false,
   };
 
   componentDidMount() {
@@ -26,8 +27,8 @@ class Questions extends React.Component {
         ...prevState,
         timerInitialState: prevState.timerInitialState - 1,
       }));
-      const { timerInitialState } = this.state;
-      if (timerInitialState === 1) {
+      const { timerInitialState, stopTimer } = this.state;
+      if (timerInitialState === 1 || stopTimer) {
         clearInterval(timer);
         this.setState({
           disableAnswers: true,
@@ -55,6 +56,7 @@ class Questions extends React.Component {
     this.setState({
       isDisabled: false,
       disableAnswers: true,
+      stopTimer: true,
     });
     const correct = questions[id].correct_answer;
     if (alt === correct) {
@@ -72,6 +74,26 @@ class Questions extends React.Component {
     const { id } = this.state;
     const { questions } = this.props;
     return (questions[id].correct_answer === alt ? 'isTrue' : 'isFalse');
+  };
+
+  increaseId = () => {
+    const FOUR = 4;
+    this.setState((prevState) => ({
+      ...prevState,
+      id: prevState.id + 1,
+    }), ({ id } = this.state) => id <= FOUR && this
+      .randomQuestions(), () => console.log('teste'));
+    this.teste();
+  };
+
+  teste = () => {
+    this.startTimer();
+    this.setState({
+      isDisabled: true,
+      timerInitialState: 30,
+      disableAnswers: false,
+      stopTimer: false,
+    });
   };
 
   render() {
@@ -99,6 +121,15 @@ class Questions extends React.Component {
                 {alt}
               </button>))}
           </div>
+          { !isDisabled && (
+            <button
+              type="button"
+              data-testid="btn-next"
+              onClick={ this.increaseId }
+            >
+              Next
+            </button>
+          )}
         </div>
       </div>
 
