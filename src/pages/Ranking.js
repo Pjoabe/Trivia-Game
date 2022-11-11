@@ -12,9 +12,11 @@ class Ranking extends Component {
 
   componentDidMount() {
     const userData = JSON.parse(localStorage.getItem('userRank'));
-    this.setState({
-      playersScore: userData,
-    });
+    if (userData) {
+      this.setState({
+        playersScore: userData,
+      });
+    }
   }
 
   playAgain = () => {
