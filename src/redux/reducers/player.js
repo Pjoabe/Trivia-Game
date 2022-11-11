@@ -7,6 +7,13 @@ const initialUserData = {
 
 const player = (state = initialUserData, action) => {
   switch (action.type) {
+  case 'CLEAR_STORE':
+    return ({
+      score: 0,
+      assertions: 0,
+      gravatarEmail: '',
+      name: '',
+    });
   case 'HANDLE_USER':
     return ({
       ...state,
