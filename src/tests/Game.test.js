@@ -6,7 +6,7 @@ import renderWithRouterAndRedux from "./helpers/renderWithRouterAndRedux"
 
 describe('<Game/>', () => {
   
-  afterEach(() => jest.clearAllMocks());
+  afterEach(() => jest.restoreAllMocks());
   
   test('se volta para pagina inicial com token invalido', async() => {
     
@@ -34,29 +34,25 @@ describe('<Game/>', () => {
 
   })
 
-  // test('se o botao play redirenciona para o path /game', async() => {
-  //   const {history} = renderWithRouterAndRedux(<App/>)
+   jest.setTimeout(3500);
+   test('se o botao play redirenciona para o path /game', async() => {
+    // jest.restoreAllMocks();
+     const {history} = renderWithRouterAndRedux(<App/>)
     
-  //   const nome = screen.getByLabelText(/nome/i)
-  //   const email = screen.getByLabelText(/email/i)
-  //   userEvent.type(nome, 'mateus')
-  //   userEvent.type(email, 'mateus@gmail.com')
-  //   const btn = screen.getByRole('button', {name: 'Play'})
+     const nome = screen.getByLabelText(/nome/i)
+     const email = screen.getByLabelText(/email/i)
+     userEvent.type(nome, 'mateus')
+     userEvent.type(email, 'mateus@gmail.com')
+     const btn = screen.getByRole('button', {name: 'Play'})
 
-  //   userEvent.click(btn)
+     userEvent.click(btn)
 
-  //   // act(() => {
-  //   //   history.push('/game')
-
-  //   // })
-  //   await waitFor(() => {
-  //     const url = history.location.pathname
-  //     expect(url).toBe('/game')
-  //   })
-
+     await waitFor(() => {
+       const url = history.location.pathname
+       expect(url).toBe('/game')
+     })
     
-  // })
-
+   })
  
 
 })

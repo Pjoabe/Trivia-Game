@@ -45,6 +45,7 @@ describe('<Login/>', () => {
 
   })
 
+  jest.setTimeout(3500);
   test('se o botao play redirenciona para o path /game', async() => {
     const {history} = renderWithRouterAndRedux(<App/>)
     
