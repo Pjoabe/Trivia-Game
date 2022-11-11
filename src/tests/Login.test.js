@@ -58,7 +58,7 @@ describe('<Login/>', () => {
     await waitFor(() => {
       const url = history.location.pathname
       expect(url).toBe('/game')
-    }, 3500)
+    })
 
     
   })
