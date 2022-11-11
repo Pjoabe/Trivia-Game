@@ -3,8 +3,6 @@ import userEvent from "@testing-library/user-event";
 import Feedback from "../pages/Feedback";
 import App from "../App";
 import renderWithRouterAndRedux from "./helpers/renderWithRouterAndRedux"
-import playedStore from './helpers/mockStore';
-import { act } from "react-dom/test-utils";
 
 describe('<feedback>',()=> {
 
@@ -39,24 +37,5 @@ it('se o botao ranking vai para pagina de ranking',() => {
   const {pathname} = history.location
   expect(pathname).toBe('/ranking')
 });
-it('O botão do ranking funciona mesmo com mais de um jogador', () => {
-  const { history } = renderWithRouterAndRedux(
-    <App />, { player: playedStore }, '/feedback'
-  );
-
-  const rankBtn = screen.getByRole('button', { name: /ranking/i })
-  userEvent.click(rankBtn);
-
-  const play = screen.getByRole('button', { name: /back to main screen/i })
-  userEvent.click(play);
-
-  act(() => {
-    history.push('/feedback');
-  })
-  const rankkBtn = screen.getByRole('button', { name: /ranking/i })
-  userEvent.click(rankkBtn);
-  expect(history.location.pathname).toBe('/ranking')
-});
-
 
 })
