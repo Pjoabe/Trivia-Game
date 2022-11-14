@@ -1,5 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap') ;
+
 body {
+  background-color: #282c34;
   box-sizing: border-box;
+  color: white;
+  font-family: Inter, sans-serif;
   margin: 0;
   padding: 0;
 }
@@ -14,11 +19,6 @@ body {
 
 .isFalse {
   border: 3px solid red;
-}
-
-.App-logo {
-  height: 15vmin;
-  pointer-events: none;
 }
 
 .red-border {
@@ -68,4 +68,233 @@ body {
   40%, 60% {
     transform: translate3d(4px, 0, 0);
   }
+}
+
+.loginDiv {
+  background-color: #1f2125;
+  border-radius: 10px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  height: 230px;
+  margin: 0 auto;
+  width: 500px;
+}
+
+#name {
+  border-radius: 10px;
+  font-size: 18px;
+  height: 30px;
+  width: 85%;
+  margin: 20px auto;
+}
+
+#email {
+  border-radius: 10px;
+  font-size: 18px;
+  height: 30px;
+  width: 85%;
+  margin: 0 auto 20px;
+}
+
+.logoLogin {
+  width: 250px;
+  margin: 50px auto 0;
+}
+
+.configBtn {
+  background-color: #3C1B7A;
+  border-radius: 7px;
+  color: white;
+  margin: 0 auto 10px;
+  padding: 5px;
+  transition: font-size 0.1s, padding 0.1s;
+  width: 80%;
+}
+
+.playBtn {
+  background-color: #2FC18C;
+  border-radius: 7px;
+  margin: 0 auto;
+  padding: 5px;
+  transition: font-size 0.1s, padding 0.1s;
+  width: 80%;
+}
+
+.playBtn:hover {
+  font-size: 15px;
+  padding: 8px;
+}
+
+.configBtn:hover {
+  font-size: 15px;
+  padding: 8px;
+}
+
+header {
+  align-items: center;
+  background-color: #1f2125;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  padding: 15px;
+}
+
+.userHeaderDiv {
+  display: flex;
+  align-items: center;
+}
+
+.userHeaderDiv img {
+  border-radius: 100%;
+  margin-right: 10px;
+}
+
+.scoreHeaderDiv {
+  display: flex;
+}
+
+.headerScore {
+  margin-left: 10px;
+}
+
+.triviaHeader {
+  width: 150px;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+}
+
+.options button {
+  background-color: #00D5E2;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  padding: 10px;
+  transition: padding 0.1s, font-size 0.1s;
+  width: 400px;
+}
+
+.optBtn:hover {
+  padding: 15px;
+  font-size: 20px;
+}
+
+.answerDiv {
+  display: flex;
+  flex-direction: column;
+}
+
+.gameDiv {
+  align-items: center;
+  display: flex;
+  height: 400px;
+  justify-content: space-around;
+  margin: 40px auto 0;
+  width: 80%;
+}
+
+.questionDiv {
+  background-color: #141518;
+  border-radius: 10px;
+  height: 300px;
+  width: 600px;
+}
+
+.questionTextDiv {
+  margin: 0 auto;
+  text-align: center;
+  width: 500px;
+}
+
+.cronometerDiv {
+  align-items: center;
+  display: flex;
+  margin: 20px auto;
+  width: 100px;
+}
+
+.catDiv {
+  align-items: center;
+  background-color: #3C1B7A;
+  border-radius: 20px;
+  bottom: 15px;
+  display: flex;
+  height: 30px;
+  justify-content: center;
+  position: relative;
+  margin: 0 auto 20px;
+  width: 500px;
+}
+
+.cronometerDiv img {
+  width: 80px;
+}
+
+.nextBtn {
+  background-color: #3C1B7A;
+  border-radius: 10px;
+  color: white;
+  margin: 0 auto;
+  padding: 5px;
+  transition: padding 0.1s, font-size 0.1s;
+  width: 150px;
+}
+
+.nextBtn:hover {
+  padding: 10px;
+  font-size: 15px;
+}
+
+.badFeedback {
+  color: #EA5D5D;
+  text-align: center;
+}
+
+.goodFeedback {
+  color: #2FC18C;
+  text-align: center;
+}
+
+.logoFeedbackDiv {
+  margin: 40px auto 0;
+  width: 150px;
+}
+
+.logoFeedbackDiv img {
+  width: 150px;
+}
+
+.feedbackDiv {
+  background-color: black;
+  margin: 0 auto;
+  padding: 10px;
+  width: 400px;
+}
+
+.scoreDiv {
+  display: flex;
+  margin: 0 auto;
+  width: 300px;
+}
+
+.left {
+  margin-right: 7px;
+}
+
+.right {
+  margin-left: 7px;
+}
+
+.assertionDiv {
+  display: flex;
+  margin: 0 auto;
+  width: 150px;
+}
+
+.allDiv {
+  width: 400px;
+  margin: 0 auto;
 }

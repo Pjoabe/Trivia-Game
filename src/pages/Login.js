@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { getApi } from '../services/api';
 import { saveUserData } from '../redux/actions/index';
+import logoTrivia from '../logoTrivia.png';
 
 class Login extends React.Component {
   constructor() {
@@ -40,46 +41,48 @@ class Login extends React.Component {
     const { history: { push } } = this.props;
     return (
       <>
-        <button
-          data-testid="btn-settings"
-          type="button"
-          onClick={ () => {
-            push('/settings');
-          } }
-        >
-          Configurações
-        </button>
-
-        <label htmlFor="name">
-          Nome
+        <div className="logoLogin">
+          <img src={ logoTrivia } alt="logo" />
+        </div>
+        <div className="loginDiv">
           <input
             value={ name }
+            placeholder="Nome"
             id="name"
             name="name"
             type="text"
             data-testid="input-player-name"
             onChange={ this.handleInput }
           />
-        </label>
-        <label htmlFor="email">
-          Email
           <input
             onChange={ this.handleInput }
+            placeholder="E-mail do gravatar"
             value={ email }
             id="email"
             name="email"
             type="text"
             data-testid="input-gravatar-email"
           />
-        </label>
-        <button
-          data-testid="btn-play"
-          type="button"
-          disabled={ this.emailValidation() }
-          onClick={ this.fetchToken }
-        >
-          Play
-        </button>
+          <button
+            className="configBtn"
+            data-testid="btn-settings"
+            type="button"
+            onClick={ () => {
+              push('/settings');
+            } }
+          >
+            Configurações
+          </button>
+          <button
+            data-testid="btn-play"
+            className="playBtn"
+            type="button"
+            disabled={ this.emailValidation() }
+            onClick={ this.fetchToken }
+          >
+            Play
+          </button>
+        </div>
       </>
     );
   }

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { scoreIncrement } from '../redux/actions';
+import clock from '../clock.gif'
 
 const CORRECT_ANSWER = 'correct-answer';
 
@@ -104,20 +105,27 @@ class Questions extends React.Component {
     return (
       <div>
         {id <= FOUR ? (
-          <div>
-            <h2>{timerInitialState}</h2>
-            <div>
-              <p data-testid="question-category">{questions[id].category}</p>
-              <p data-testid="question-text">{questions[id].question}</p>
+          <div className="gameDiv">
+            <div className="questionDiv">
+              <div className="catDiv">
+                <p data-testid="question-category">{questions[id].category}</p>
+              </div>
+              <div className="questionTextDiv">
+                <p data-testid="question-text">{questions[id].question}</p>
+              </div>
+              <div className="cronometerDiv">
+                <img src={ clock } />
+                <h2>{timerInitialState}</h2>
+              </div>
             </div>
-            <div>
-              <div data-testid="answer-options">
+            <div className="answerDiv">
+              <div className="options" data-testid="answer-options">
                 {randomized.map((alt, index) => (
                   <button
                     onClick={ () => this.handleCorrectAnswer(alt) }
                     data-testid={ questions[id].correct_answer === alt
                       ? CORRECT_ANSWER : `wrong-answer-${index}` }
-                    className={ !isDisabled && this.colors(alt) }
+                    className={ `${!isDisabled && this.colors(alt)} optBtn` }
                     type="button"
                     key={ index }
                     disabled={ disableAnswers }
@@ -128,6 +136,7 @@ class Questions extends React.Component {
               { !isDisabled && (
                 <button
                   type="button"
+                  className="nextBtn"
                   data-testid="btn-next"
                   onClick={ this.increaseId }
                 >

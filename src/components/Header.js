@@ -2,6 +2,7 @@ import md5 from 'crypto-js/md5';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import trivia from '../trivia.png'
 
 class Header extends Component {
   constructor() {
@@ -28,9 +29,15 @@ class Header extends Component {
     const { score } = this.props;
     return (
       <header>
-        <img data-testid="header-profile-picture" src={ img } alt="User img" />
-        <h3 data-testid="header-player-name">{ name }</h3>
-        <p data-testid="header-score">{ score }</p>
+        <img className="App-logo triviaHeader" src={ trivia } alt="trivia" />
+        <div className="scoreHeaderDiv">
+          <h3>Score:</h3>
+          <h3 className="headerScore" data-testid="header-score">{ score }</h3>
+        </div>
+        <div className="userHeaderDiv">
+          <img data-testid="header-profile-picture" src={ img } alt="User img" />
+          <h3 data-testid="header-player-name">{ name }</h3>
+        </div>
       </header>
     );
   }
