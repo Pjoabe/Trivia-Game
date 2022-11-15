@@ -2,7 +2,7 @@ import md5 from 'crypto-js/md5';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import trivia from '../trivia.png'
+import trivia from '../trivia.png';
 
 class Header extends Component {
   constructor() {

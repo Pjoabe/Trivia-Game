@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { scoreIncrement } from '../redux/actions';
-import clock from '../clock.gif'
+import clock from '../clock.gif';
 
 const CORRECT_ANSWER = 'correct-answer';
 
@@ -102,6 +102,7 @@ class Questions extends React.Component {
     const { randomized, id, isDisabled, timerInitialState, disableAnswers } = this.state;
     const { questions } = this.props;
     const FOUR = 4;
+    const ten = 10;
     return (
       <div>
         {id <= FOUR ? (
@@ -114,8 +115,10 @@ class Questions extends React.Component {
                 <p data-testid="question-text">{questions[id].question}</p>
               </div>
               <div className="cronometerDiv">
-                <img src={ clock } />
-                <h2>{timerInitialState}</h2>
+                <img src={ clock } alt="cronometer" />
+                <h2 className={ timerInitialState < ten ? 'red' : undefined }>
+                  {timerInitialState}
+                </h2>
               </div>
             </div>
             <div className="answerDiv">

@@ -185,6 +185,7 @@ header {
 .answerDiv {
   display: flex;
   flex-direction: column;
+  height: 300px;
 }
 
 .gameDiv {
@@ -199,6 +200,7 @@ header {
 .questionDiv {
   background-color: #141518;
   border-radius: 10px;
+  box-shadow: 1px 4px 13px 2px rgba(0, 0, 0, 0.2);
   height: 300px;
   width: 600px;
 }
@@ -268,7 +270,9 @@ header {
 }
 
 .feedbackDiv {
-  background-color: black;
+  background-color: #1f2125;
+  border-radius: 10px;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
   margin: 0 auto;
   padding: 10px;
   width: 400px;
@@ -297,4 +301,152 @@ header {
 .allDiv {
   width: 400px;
   margin: 0 auto;
+}
+
+.btnDiv {
+  align-items: center;
+  display: flex;
+  height: 50px;
+  justify-content: space-around;
+  margin-top: 20px;
+  width: 420px;
+}
+
+.playAgainBtn {
+  background-color: #2FC18C;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 5px;
+  transition: padding 0.1s, font-size 0.1s;
+  width: 150px;
+}
+
+.rankBtn {
+  background-color: #3C1B7A;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  color: white;
+  padding: 5px;
+  transition: font-size 0.1s, padding 0.1s;
+  width: 150px;
+}
+
+.rankBtn:hover {
+  font-size: 17px;
+  padding: 10px;
+}
+
+.playAgainBtn:hover {
+  font-size: 17px;
+  padding: 10px;
+}
+
+.red {
+  color: #EA5D5D;
+}
+
+.rankMainDiv {
+  background-color: #1f2125;
+  border-radius: 20px;
+  box-shadow: 1px 4px 13px 2px rgba(0, 0, 0, 0.2);
+  margin: 60px auto 0;
+  padding: 20px;
+  width: 40%;
+}
+
+.rankUser {
+  align-items: center;
+  background-color: #EBEBEB;
+  border-radius: 30px;
+  color: black;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  width: 300px;
+}
+
+.userRankImg {
+  border-radius: 100%;
+  height: 37px;
+  width: 37px;
+}
+
+.pointsDiv {
+  align-items: center;
+  background-color: white;
+  border-radius: 30px;
+  box-shadow: 0px 4px 22px rgba(0, 0, 0, 0.25);
+  color: black;
+  display: flex;
+  left: 10px;
+  position: relative;
+  width: 170px;
+}
+
+.star {
+  height: 30px;
+  margin: 0 10px;
+  width: 30px;
+}
+
+.personalUserDiv {
+  align-items: center;
+  display: flex;
+}
+
+.userNamePoints {
+  margin-right: 5px;
+}
+
+.userRankImg {
+  margin: 0 10px;
+}
+
+.rankDiv {
+  margin: 20px auto;
+  width: 300px;
+}
+
+.rankDiv ol {
+  margin: 0;
+  padding: 0;
+}
+
+.imgRankDiv {
+  bottom: 50px;
+  margin: 0 auto;
+  height: 180px;
+  width: 180px;
+  position: relative;
+}
+
+.rankLogo {
+  height: 180px;
+  width: 180px;
+}
+
+.rankTitle {
+  color: #3C1B7A;
+  text-align: center;
+}
+
+.rankBtnDiv {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 50px;
+}
+
+.btnBack {
+  background-color: #3C1B7A;
+  border-radius: 10px;
+  color: white;
+  padding: 7px;
+  transition: padding 0.1s, font-size 0.1s;
+  width: 250px;
+}
+
+.btnBack:hover {
+  padding: 12px;
+  font-size: 17px;
 }

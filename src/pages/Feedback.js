@@ -55,13 +55,20 @@ class Feedback extends Component {
               <h3 data-testid="feedback-total-question">{Assertions}</h3>
             </div>
             {Score < minScore
-              ? <h3 className="badFeedback" data-testid="feedback-text">Could be better...</h3>
-              : <h3 className="goodFeedback" data-testid="feedback-text">Well Done!</h3>}
+              ? (
+                <h3 className="badFeedback" data-testid="feedback-text">
+                  Could be better...
+                </h3>
+              )
+              : (
+                <h3 className="goodFeedback" data-testid="feedback-text">Well Done!</h3>
+              )}
           </div>
-          <div>
+          <div className="btnDiv">
             <button
               type="submit"
               data-testid="btn-play-again"
+              className="playAgainBtn"
               onClick={ this.playAgainBtn }
             >
               Play Again
@@ -69,6 +76,7 @@ class Feedback extends Component {
             <button
               type="submit"
               data-testid="btn-ranking"
+              className="rankBtn"
               onClick={ this.saveUserData }
             >
               Ranking
