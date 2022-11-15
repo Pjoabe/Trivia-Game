@@ -48,7 +48,7 @@ class Login extends React.Component {
           <input
             value={ name }
             placeholder="Nome"
-            id="name"
+            className="name"
             name="name"
             type="text"
             data-testid="input-player-name"
@@ -58,7 +58,7 @@ class Login extends React.Component {
             onChange={ this.handleInput }
             placeholder="E-mail do gravatar"
             value={ email }
-            id="email"
+            className="email"
             name="email"
             type="text"
             data-testid="input-gravatar-email"

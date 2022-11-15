@@ -4,7 +4,7 @@ body {
   background-color: #282c34;
   box-sizing: border-box;
   color: white;
-  font-family: Inter, sans-serif;
+  font-family: Inter , sans-serif;
   margin: 0;
   padding: 0;
 }
@@ -81,43 +81,43 @@ body {
   width: 500px;
 }
 
-#name {
+.name {
   border-radius: 10px;
   font-size: 18px;
   height: 30px;
-  width: 85%;
   margin: 20px auto;
+  width: 85%;
 }
 
-#email {
+.email {
   border-radius: 10px;
   font-size: 18px;
   height: 30px;
-  width: 85%;
   margin: 0 auto 20px;
+  width: 85%;
 }
 
 .logoLogin {
-  width: 250px;
   margin: 50px auto 0;
+  width: 250px;
 }
 
 .configBtn {
-  background-color: #3C1B7A;
+  background-color: #3c1b7a;
   border-radius: 7px;
   color: white;
   margin: 0 auto 10px;
   padding: 5px;
-  transition: font-size 0.1s, padding 0.1s;
+  transition: font-size 0.1s , padding 0.1s;
   width: 80%;
 }
 
 .playBtn {
-  background-color: #2FC18C;
+  background-color: #2fc18c;
   border-radius: 7px;
   margin: 0 auto;
   padding: 5px;
-  transition: font-size 0.1s, padding 0.1s;
+  transition: font-size 0.1s , padding 0.1s;
   width: 80%;
 }
 
@@ -134,7 +134,7 @@ body {
 header {
   align-items: center;
   background-color: #1f2125;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   color: white;
   display: flex;
   justify-content: space-around;
@@ -142,8 +142,8 @@ header {
 }
 
 .userHeaderDiv {
-  display: flex;
   align-items: center;
+  display: flex;
 }
 
 .userHeaderDiv img {
@@ -169,17 +169,17 @@ header {
 }
 
 .options button {
-  background-color: #00D5E2;
+  background-color: #00d5e2;
   border-radius: 20px;
   margin-bottom: 20px;
   padding: 10px;
-  transition: padding 0.1s, font-size 0.1s;
+  transition: padding 0.1s , font-size 0.1s;
   width: 400px;
 }
 
 .optBtn:hover {
-  padding: 15px;
   font-size: 20px;
+  padding: 15px;
 }
 
 .answerDiv {
@@ -220,14 +220,14 @@ header {
 
 .catDiv {
   align-items: center;
-  background-color: #3C1B7A;
+  background-color: #3c1b7a;
   border-radius: 20px;
   bottom: 15px;
   display: flex;
   height: 30px;
   justify-content: center;
-  position: relative;
   margin: 0 auto 20px;
+  position: relative;
   width: 500px;
 }
 
@@ -236,27 +236,27 @@ header {
 }
 
 .nextBtn {
-  background-color: #3C1B7A;
+  background-color: #3c1b7a;
   border-radius: 10px;
   color: white;
   margin: 0 auto;
   padding: 5px;
-  transition: padding 0.1s, font-size 0.1s;
+  transition: padding 0.1s , font-size 0.1s;
   width: 150px;
 }
 
 .nextBtn:hover {
-  padding: 10px;
   font-size: 15px;
+  padding: 10px;
 }
 
 .badFeedback {
-  color: #EA5D5D;
+  color: #ea5d5d;
   text-align: center;
 }
 
 .goodFeedback {
-  color: #2FC18C;
+  color: #2fc18c;
   text-align: center;
 }
 
@@ -299,8 +299,8 @@ header {
 }
 
 .allDiv {
-  width: 400px;
   margin: 0 auto;
+  width: 400px;
 }
 
 .btnDiv {
@@ -313,21 +313,21 @@ header {
 }
 
 .playAgainBtn {
-  background-color: #2FC18C;
+  background-color: #2fc18c;
   border-radius: 10px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 5px;
-  transition: padding 0.1s, font-size 0.1s;
+  transition: padding 0.1s , font-size 0.1s;
   width: 150px;
 }
 
 .rankBtn {
-  background-color: #3C1B7A;
+  background-color: #3c1b7a;
   border-radius: 10px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   color: white;
   padding: 5px;
-  transition: font-size 0.1s, padding 0.1s;
+  transition: font-size 0.1s , padding 0.1s;
   width: 150px;
 }
 
@@ -342,7 +342,7 @@ header {
 }
 
 .red {
-  color: #EA5D5D;
+  color: #ea5d5d;
 }
 
 .rankMainDiv {
@@ -356,7 +356,7 @@ header {
 
 .rankUser {
   align-items: center;
-  background-color: #EBEBEB;
+  background-color: #ebebeb;
   border-radius: 30px;
   color: black;
   display: flex;
@@ -375,7 +375,7 @@ header {
   align-items: center;
   background-color: white;
   border-radius: 30px;
-  box-shadow: 0px 4px 22px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 4px 22px rgba(0, 0, 0, 0.25);
   color: black;
   display: flex;
   left: 10px;
@@ -398,10 +398,6 @@ header {
   margin-right: 5px;
 }
 
-.userRankImg {
-  margin: 0 10px;
-}
-
 .rankDiv {
   margin: 20px auto;
   width: 300px;
@@ -414,10 +410,10 @@ header {
 
 .imgRankDiv {
   bottom: 50px;
-  margin: 0 auto;
   height: 180px;
-  width: 180px;
+  margin: 0 auto;
   position: relative;
+  width: 180px;
 }
 
 .rankLogo {
@@ -426,27 +422,27 @@ header {
 }
 
 .rankTitle {
-  color: #3C1B7A;
+  color: #3c1b7a;
   text-align: center;
 }
 
 .rankBtnDiv {
   align-items: center;
   display: flex;
-  justify-content: center;
   height: 50px;
+  justify-content: center;
 }
 
 .btnBack {
-  background-color: #3C1B7A;
+  background-color: #3c1b7a;
   border-radius: 10px;
   color: white;
   padding: 7px;
-  transition: padding 0.1s, font-size 0.1s;
+  transition: padding 0.1s , font-size 0.1s;
   width: 250px;
 }
 
 .btnBack:hover {
-  padding: 12px;
   font-size: 17px;
+  padding: 12px;
 }
