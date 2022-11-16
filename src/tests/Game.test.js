@@ -19,8 +19,8 @@ describe('<Game/>', () => {
 
   const {history} = renderWithRouterAndRedux(<App/>)
     
-    const nome = screen.getByLabelText(/nome/i)
-    const email = screen.getByLabelText(/email/i)
+    const nome = screen.getByPlaceholderText(/Nome/)
+    const email = screen.getByPlaceholderText(/E-mail do gravatar/)
     userEvent.type(nome, 'mateus')
     userEvent.type(email, 'mateus@gmail.com')
     const btn = screen.getByRole('button', {name: 'Play'})
@@ -39,8 +39,8 @@ describe('<Game/>', () => {
     // jest.restoreAllMocks();
      const {history} = renderWithRouterAndRedux(<App/>)
     
-     const nome = screen.getByLabelText(/nome/i)
-     const email = screen.getByLabelText(/email/i)
+     const nome = screen.getByPlaceholderText(/Nome/)
+     const email = screen.getByPlaceholderText(/E-mail do gravatar/)
      userEvent.type(nome, 'mateus')
      userEvent.type(email, 'mateus@gmail.com')
      const btn = screen.getByRole('button', {name: 'Play'})

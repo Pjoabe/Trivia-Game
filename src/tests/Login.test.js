@@ -13,8 +13,8 @@ describe('<Login/>', () => {
 
   test('se os inputs sao renderizados na tela e o botao', () => {
     renderWithRouterAndRedux(<App/>)
-    const nome = screen.getByLabelText(/nome/i)
-    const email = screen.getByLabelText(/email/i)
+    const nome = screen.getByPlaceholderText(/Nome/)
+    const email = screen.getByPlaceholderText(/E-mail do gravatar/)
     const btn = screen.getByRole('button', {name: 'Play'})
 
     expect(nome).toBeInTheDocument()
@@ -26,8 +26,8 @@ describe('<Login/>', () => {
   test('se o botao eh habilitado quando campos sao preenchidos', () => {
     renderWithRouterAndRedux(<App />)
     
-    const nome = screen.getByLabelText(/nome/i)
-    const email = screen.getByLabelText(/email/i)
+    const nome = screen.getByPlaceholderText(/Nome/)
+    const email = screen.getByPlaceholderText(/E-mail do gravatar/)
     const btn = screen.getByRole('button', {name: 'Play'})
 
     userEvent.type(nome, 'mateus')
@@ -49,8 +49,8 @@ describe('<Login/>', () => {
   test('se o botao play redirenciona para o path /game', async() => {
     const {history} = renderWithRouterAndRedux(<App/>)
     
-    const nome = screen.getByLabelText(/nome/i)
-    const email = screen.getByLabelText(/email/i)
+    const nome = screen.getByPlaceholderText(/Nome/)
+    const email = screen.getByPlaceholderText(/E-mail do gravatar/)
     userEvent.type(nome, 'mateus')
     userEvent.type(email, 'mateus@gmail.com')
     const btn = screen.getByRole('button', {name: 'Play'})
