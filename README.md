@@ -9,12 +9,23 @@ O jogo Trivia consiste em um jogo de conhecimentos gerais em que o usuario acumu
 - [Scrum](https://pt.wikipedia.org/wiki/Scrum)
 - [Trello](https://trello.com/)
 ---
-## ⬇️ Instalando dependências
+## Instalação do projeto localmente
+
+Para instalar este projeto na sua máquina localmente siga estes passos
+
+1. Clone este repositório usando 
+
+```
+  git@github.com:Pjoabe/Trivia-Game.git
+```
+
+2. Instale as dependências usando 
+
+```
+  npm install
+```
+## 3 Executando a aplicação
 
 ```bash
-npm install
-```
-## ⬇️ executando a aplicação
-```bash
 npm start
-```
+``` 
