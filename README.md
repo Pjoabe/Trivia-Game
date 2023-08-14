@@ -24,7 +24,7 @@ Para instalar este projeto na sua máquina localmente siga estes passos
 ```
   npm install
 ```
-## 3 Executando a aplicação
+3. Executando a aplicação
 
 ```bash
 npm start
